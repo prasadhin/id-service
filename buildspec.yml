@@ -3,6 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - mvn clean install
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region eu-west-1 --no-include-email)
@@ -25,4 +26,6 @@ phases:
       - printf '[{"name":"nodeapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
-  files: imagedefinitions.json
+  files:
+    - imagedefinitions.json
+    - target/id-service-0.0.1.jar
