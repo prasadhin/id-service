@@ -18,7 +18,6 @@ public class Greeter {
         return new Greeting(counter.incrementAndGet(), String.format(template, name)+getIpaddress());
     }
 
-
     private String getIpaddress(){
         InetAddress ip;
         String hostname;
