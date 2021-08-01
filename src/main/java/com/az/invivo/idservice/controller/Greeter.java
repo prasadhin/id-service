@@ -19,8 +19,8 @@ public class Greeter {
     }
 
     private String getIpaddress(){
-        InetAddress ip;
-        String hostname;
+        InetAddress ip = null;
+        String hostname = "";
         try {
             ip = InetAddress.getLocalHost();
             hostname = ip.getHostName();
@@ -31,7 +31,6 @@ public class Greeter {
 
             e.printStackTrace();
         }
-        String s = hostname + ip.toString();
-        return s;
+        return hostname + ip.toString();
     }
 }
